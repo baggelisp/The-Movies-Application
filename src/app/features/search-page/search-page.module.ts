@@ -8,6 +8,8 @@ import { SearchPageApi } from './search-page.api';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     SearchPageRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [
     SearchPageService,
