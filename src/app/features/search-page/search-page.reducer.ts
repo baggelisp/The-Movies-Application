@@ -3,12 +3,14 @@ import { Movie } from "src/app/models/interfaces";
 interface initialStateInt {
   currentPage: number,
   totalPages: number,
+  totalResults: number,
   movies: Movie[],
 }
 
 const initialState: initialStateInt ={
   currentPage: 0,
   totalPages: 0,
+  totalResults: 0,
   movies: [],
 };
 
@@ -24,8 +26,9 @@ export function searchMovieReducer(state = initialState, { type, payload }: Acti
       return {
         ...state,
         movies: [...payload.results],
-        currentPage: payload.page,
-        totalPages: payload.total_pages
+        currentPage: payload.page - 1,
+        totalPages: payload.total_pages,
+        totalResults: payload.total_results
       }
     default:
       return state;

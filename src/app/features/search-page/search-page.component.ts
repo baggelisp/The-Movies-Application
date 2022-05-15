@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { SearchPageService } from './search-page.service';
 
 @Component({
@@ -19,5 +20,9 @@ export class SearchPageComponent implements OnInit {
 
   onSearchChangeValue(value: string) {
     console.log(value)
+  }
+
+  onPageChange(event:any) {
+    this.service.getPopularMovies(event.pageIndex + 1);
   }
 }

@@ -10,8 +10,8 @@ export class SearchPageApi {
 	constructor(private http: HttpClient) {
 	}
 
-	getPopularMovies(): Observable<MoviesResponse> {
-		return this.http.get<MoviesResponse>(`${environment.apiUrl}/3/movie/popular?api_key=${environment.apiKey}`);
+	getPopularMovies(page=1): Observable<MoviesResponse> {
+		return this.http.get<MoviesResponse>(`${environment.apiUrl}/3/movie/popular?api_key=${environment.apiKey}&page=${page}`);
 	}
 
 	searchMovie(query: string): Observable<MoviesResponse> {

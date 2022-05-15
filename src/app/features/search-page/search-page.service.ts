@@ -10,6 +10,8 @@ export class SearchPageService {
   public readonly movies$: Observable<Movie[]>;
   public readonly currentPage$: Observable<number>;
   public readonly totalPages$: Observable<number>;
+  public readonly totalResults$: Observable<number>;
+  
 
   
   constructor(private store: Store<any>, private api: SearchPageApi, private spinner: NgxSpinnerService) { 
@@ -17,11 +19,13 @@ export class SearchPageService {
     this.movies$  = state$.pipe(select(state => state['movies']));
     this.currentPage$  = state$.pipe(select(state => state['currentPage']));
     this.totalPages$  = state$.pipe(select(state => state['totalPages']));
+    this.totalResults$  = state$.pipe(select(state => state['totalResults']));
+
   }
 
-  getPopularMovies() {
+  getPopularMovies(page=1) {
     this.spinner.show();
-    this.api.getPopularMovies().subscribe( response => {
+    this.api.getPopularMovies(page).subscribe( response => {
       this.spinner.hide();
       this.store.dispatch({ type: `GET_MOVIES_SUCCESS`, payload: {...response}  }); 
     }, error => {
