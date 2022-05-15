@@ -1,0 +1,30 @@
+@import '../../../scss/colors.scss';
+
+.header-container{
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    max-height: 300px;
+    background-color: $background;
+    border-radius: 20px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.header-wp{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.right-col{
+    color: $font-color;
+}
+
+.left-col{
+    // display: flex;
+    // justify-content: center;
+    img {
+        max-width: 250px;
+    }
+}
