@@ -1,6 +1,10 @@
 <div class="search-container">
     <app-search-input (onChangeValue)="onSearchChangeValue($event)"></app-search-input>
 </div>
-
+<div class="movie-list-container">
+    <ng-container *ngFor="let movie of service.movies$ | async; index as i;">
+        <app-movie-card [movie]="movie"></app-movie-card>
+    </ng-container>
+</div>
 
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>

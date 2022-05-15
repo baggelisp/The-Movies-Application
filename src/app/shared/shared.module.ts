@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import { ForbiddenValidatorDirective } from './directives/forbidden-validator.directive';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 
 @NgModule({
   declarations: [
-    ForbiddenValidatorDirective
+    ForbiddenValidatorDirective,
+    MovieCardComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { ForbiddenValidatorDirective } from './directives/forbidden-validator.di
   ],
   exports: [
     MatIconModule,
-    ForbiddenValidatorDirective
+    ForbiddenValidatorDirective,
+    MovieCardComponent
   ]
 })
 export class SharedModule { }

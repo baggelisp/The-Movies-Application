@@ -1,0 +1,40 @@
+@import '../../../../scss/colors.scss';
+
+.movie-card-cont{
+    width: calc(100% - 80px);
+    margin: 20px;
+    background-color: $background;
+    border-radius: 20px;
+    min-height: 100px;
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
+
+}
+.movie-card-cont:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.movie-image{
+    max-height: 160px;
+    border-radius: 5px;
+}
+
+.movie-details{
+    padding: 30px;
+}
+
+.movie-title{
+    font-weight: 600;
+}
+
+.release-date{
+    margin-top: 10px;
+}
+
+.voted {
+    font-size: 16px;
+    font-weight: 600;
+
+}
