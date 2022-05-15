@@ -14,7 +14,7 @@
     </div>
     <div class="movie-list-container">
         <ng-container *ngFor="let movie of service.movies$ | async; index as i;">
-            <app-movie-card [movie]="movie"></app-movie-card>
+            <app-movie-card (onClickMovieCard)="onClickCard(movie.id)" [movie]="movie"></app-movie-card>
         </ng-container>
         <ng-container *ngIf="(service.movies$ | async)?.length == 0 && isSearchOpen">
             No movie found!

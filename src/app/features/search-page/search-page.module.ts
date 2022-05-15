@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MovieDetailsModalModule } from '../movie-details-modal/movie-details-modal.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormsModule,
     HttpClientModule,
     NgxSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MovieDetailsModalModule
   ],
   providers: [
     SearchPageService,
