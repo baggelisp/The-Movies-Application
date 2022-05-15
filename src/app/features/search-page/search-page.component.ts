@@ -12,4 +12,7 @@ export class SearchPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSearchChangeValue(value: string) {
+    console.log(value)
+  }
 }
