@@ -7,6 +7,7 @@ import { SearchPageComponent } from './search-page.component';
 import { SearchPageApi } from './search-page.api';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SearchPageRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [
     SearchPageService,

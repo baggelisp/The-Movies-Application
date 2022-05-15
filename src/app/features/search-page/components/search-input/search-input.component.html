@@ -1,4 +1,9 @@
 <div class="search-wp">
-    <input class="" (input)="changeInput($event)" type="text" placeholder="Search Movie..." name="search">
+    <input appValidateInputValue [(ngModel)]="inputValue" #search="ngModel" class="" (input)="changeInput(search.errors, $event)" type="text" placeholder="Search Movie..." name="search">
     <mat-icon class="search-icon" aria-hidden="false">search</mat-icon>
+</div>
+<div class="alerts">
+    <ng-container *ngIf="search.errors?.['validateValue'] && (search.dirty || search.touched)">
+        Input is not valid.
+    </ng-container>
 </div>

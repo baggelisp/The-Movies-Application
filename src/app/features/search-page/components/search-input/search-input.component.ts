@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchInputComponent implements OnInit {
 
+  inputValue: string = '';
   @Output() onChangeValue = new EventEmitter<string>();
   
   constructor() { }
@@ -14,7 +15,9 @@ export class SearchInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeInput(text: any){
+  changeInput(errors: any, text: any){
+    console.log(errors)
+    if (errors !== null) return;
     this.onChangeValue.emit((text?.target as HTMLTextAreaElement)?.value);
 	}
 }
