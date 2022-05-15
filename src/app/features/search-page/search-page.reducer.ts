@@ -30,6 +30,10 @@ export function searchMovieReducer(state = initialState, { type, payload }: Acti
         totalPages: payload.total_pages,
         totalResults: payload.total_results
       }
+    case 'CLEAN_STATE':
+      return {
+        ...initialState
+      }
     default:
       return state;
   }

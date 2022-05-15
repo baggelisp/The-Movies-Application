@@ -30,13 +30,21 @@ export class SearchPageService {
       this.store.dispatch({ type: `GET_MOVIES_SUCCESS`, payload: {...response}  }); 
     }, error => {
       this.spinner.hide();
-      alert("There was an error getting movies. Please try again later.")
+      alert("There was an error getting movies. Please try again later.");
+      this.store.dispatch({ type: `CLEAN_STATE`, payload: {}  }); 
     });
 	}
 
-	searchMovie(query: string){
-    this.api.searchMovie(query).subscribe( a => {
-      console.log(a)
-    });	
+	searchMovie(query: string, page=1){
+    this.spinner.show();
+    this.api.searchMovie(query, page).subscribe( response => {
+      this.spinner.hide();
+      this.store.dispatch({ type: `GET_MOVIES_SUCCESS`, payload: {...response}  }); 
+    }, error => {
+      this.spinner.hide();
+      alert("There was an error getting movies. Please try again later.");
+      this.store.dispatch({ type: `CLEAN_STATE`, payload: {}  }); 
+
+    });
   }
 }

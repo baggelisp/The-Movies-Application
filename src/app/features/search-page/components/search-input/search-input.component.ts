@@ -16,7 +16,7 @@ export class SearchInputComponent implements OnInit {
   
   constructor() {
     this.subscription = this.inputValueChanged.pipe(
-      debounceTime(500), 
+      debounceTime(600), 
       distinctUntilChanged())
       .subscribe(value => {
         this.onChangeValue.emit(value);
