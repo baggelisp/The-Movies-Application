@@ -6,6 +6,7 @@ import { MovieDetailsModalApi } from './movie-details-modal.api';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CommonModule,
     SharedModule,
     MatDialogModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    HttpClientModule
   ],
   providers: [
     MovieDetailsModalService,

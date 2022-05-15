@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieDetailsModalService } from './movie-details-modal.service';
 
 @Component({
   selector: 'app-movie-details-modal',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailsModalComponent implements OnInit {
 
-  constructor() { }
+  constructor( public service: MovieDetailsModalService) { }
 
   ngOnInit(): void {
+
+    this.service.movie$.subscribe(a => {
+      console.log(a)
+    })
   }
 
 }
