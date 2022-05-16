@@ -2,6 +2,9 @@
     <div class="search-container">
         <app-search-input (onChangeValue)="onSearchChangeValue($event)"></app-search-input>
     </div>
+    <div class="title-container">
+        {{isSearchOpen ? 'Search result' : 'Popular movies'}}
+    </div>
     <div class="pagination-container">
         <mat-paginator [length]="service.totalResults$ | async"
             [pageSize]="20"

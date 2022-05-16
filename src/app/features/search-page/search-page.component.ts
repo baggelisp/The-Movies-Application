@@ -1,8 +1,7 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { Component, OnInit } from '@angular/core';
 import { MovieDetailsModalService } from '../movie-details-modal/movie-details-modal.service';
 import { SearchPageService } from './search-page.service';
-import {Location} from '@angular/common'; 
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-page',
@@ -16,7 +15,10 @@ export class SearchPageComponent implements OnInit {
 
   constructor(public service: SearchPageService, 
     public movieDetailModal: MovieDetailsModalService,
-    private location: Location) { }
+    private router: Router, private route: ActivatedRoute) {
+      const openMovieQueryParam = this.route.snapshot.queryParamMap.get('openMovie');
+      if (openMovieQueryParam) this.movieDetailModal.openDialog(parseInt(openMovieQueryParam));
+     }
 
   ngOnInit(): void {
     this.service.getPopularMovies();
@@ -39,7 +41,15 @@ export class SearchPageComponent implements OnInit {
   }
 
   onClickCard(movieId: number){
-    this.location.replaceState("/movie/" + movieId);
+    const queryParams: Params = { openMovie: movieId };
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.route,
+        queryParams: queryParams, 
+        queryParamsHandling: 'merge', // remove to replace all query params by provided
+      });
     this.movieDetailModal.openDialog(movieId)
   }
+
 }
