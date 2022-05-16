@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
@@ -12,16 +13,25 @@ export class MovieDetailsModalService {
   public readonly movie$: Observable<MovieDetails>;
 
   constructor(public dialog: MatDialog, private store: Store<any>, 
-    private api: MovieDetailsModalApi, private spinner: NgxSpinnerService) { 
+    private api: MovieDetailsModalApi, private spinner: NgxSpinnerService,
+    private router: Router, private route: ActivatedRoute) { 
       const state$ = store.select('movieDetailsReducer');
       this.movie$  = state$.pipe(select(state => state['movie']));
     }
 
   openDialog(movieId: number) {
     const dialogRef = this.dialog.open(MovieDetailsModalComponent);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      // remove query param variable
+      const queryParams: Params = { openMovie: null };
+      this.router.navigate(
+        [], 
+        {
+          relativeTo: this.route,
+          queryParams: queryParams, 
+          queryParamsHandling: 'merge', // remove to replace all query params by provided
+        });
+    });
     this.getMovie(movieId);
   }
 
