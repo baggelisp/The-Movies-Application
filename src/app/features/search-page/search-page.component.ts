@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MovieDetailsModalService } from '../movie-details-modal/movie-details-modal.service';
 import { SearchPageService } from './search-page.service';
+import {Location} from '@angular/common'; 
 
 @Component({
   selector: 'app-search-page',
@@ -13,7 +14,9 @@ export class SearchPageComponent implements OnInit {
   searchValue: string = '';
   isSearchOpen = false;
 
-  constructor(public service: SearchPageService, public movieDetailModal: MovieDetailsModalService) { }
+  constructor(public service: SearchPageService, 
+    public movieDetailModal: MovieDetailsModalService,
+    private location: Location) { }
 
   ngOnInit(): void {
     this.service.getPopularMovies();
@@ -36,6 +39,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   onClickCard(movieId: number){
+    this.location.replaceState("/movie/" + movieId);
     this.movieDetailModal.openDialog(movieId)
   }
 }
