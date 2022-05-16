@@ -1,14 +1,65 @@
-<h2 mat-dialog-title>{{(service.movie$ | async)?.title}}</h2>
-<mat-dialog-content class="mat-typography">
-  <h3>Tagline</h3>
-  <p>{{(service.movie$ | async)?.tagline}}</p>
-  <h3>Overview</h3>
-  <p>{{(service.movie$ | async)?.overview}}</p>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>CLOSE</button>
-  <button mat-button>ADD TO FAVORITE</button>
+<ng-container *ngIf="(service.movie$ | async) as movie">
+  <h2 mat-dialog-title>{{movie.title}}</h2>
+  <mat-dialog-content class="mat-typography">
+    <p>{{movie.tagline}}</p>
+  
+    <div class="flex-between">
+      <div class="p-20px">
+        <img class="movie-image" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
+      </div>
 
-</mat-dialog-actions>
+      <div class="p-20px">
+        <h3 class="text-bold">Overview</h3>
+        <p>{{movie.overview}}</p>
+        <h3 class="text-bold"> Genres </h3>
+        <div class="genre-chips d-m-block">
+            <div class="genre m-text-center " *ngFor="let genre of movie.genres">
+                {{genre.name}}
+            </div>
+        </div>
+        <h3 class="text-bold">Languages</h3>
+        <div class="flex-start">
+          <div class="lang m-text-center " *ngFor="let lan of movie.spoken_languages">
+            {{ lan.english_name}}
+          </div>
+        </div>
+        <div class="align-center flex-start m-top-20px text-bold">
+          <div class="align-center flex-start"> Rating: {{movie.vote_average}} / 10 <mat-icon class="star-icon m-x-10px" aria-hidden="false">star</mat-icon>  </div>
+          <div class="align-center flex-start m-l-20px">Total votes: {{movie.vote_count}}</div>
+        </div>
+        <div class="flex-start">
+          <div class="p-20px p-l-0">
+            <h3 class="text-bold">Release Date</h3>
+            <p>{{movie.release_date | date:'MMMM d, y'}}</p>
+          </div>
+          <div class="p-20px">
+            <h3 class="text-bold">Budget</h3>
+            <p>{{movie.budget | number:'1.2-2' }} USD</p>
+          </div>
+          <div class="p-20px">
+            <h3 class="text-bold">Revenue</h3>
+            <p>{{movie.revenue | number:'1.2-2' }} USD</p>
+          </div>
+        </div>
+        <div class="m-top-20px">
+          <button *ngIf="movie.homepage" (click)="goToLink(movie.homepage)" class="danger-button">
+            <mat-icon class="play-icon" aria-hidden="false">play_circle_filled</mat-icon> PLAY
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="dialog-button">CLOSE</button>
+    <button mat-button class="dialog-button fav-button">
+      <!-- <mat-icon class="" aria-hidden="false">favorite</mat-icon> -->
+      <!-- <mat-icon class="" aria-hidden="false">favorite_border</mat-icon> -->
+
+      ADD TO FAVORITE</button>
+  
+  </mat-dialog-actions>
+</ng-container>
+
+
 
 <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "square-loader" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

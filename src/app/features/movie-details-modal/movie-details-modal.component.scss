@@ -1,0 +1,39 @@
+.movie-image{
+    max-width: 350px;
+}
+
+
+.genre, .lang {
+    background-color: antiquewhite;
+    border-radius: 30px;
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+.lang{
+    background-color: rgb(250, 215, 236);
+}
+
+.genre-chips {
+    display: flex;
+    justify-content: start;
+}
+
+.play-icon{
+    margin-right: 5px;
+}
+
+.fav-button{
+    // background-color: rgba(255, 137, 137, 0.581);
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.star-icon{
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
