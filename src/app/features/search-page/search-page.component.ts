@@ -22,9 +22,6 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPopularMovies();
-    // this.service.movies$.subscribe (a => {
-    //   console.log(a)
-    // })
   }
 
   onSearchChangeValue(value: string) {

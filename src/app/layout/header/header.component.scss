@@ -22,9 +22,12 @@
 }
 
 .left-col{
-    // display: flex;
-    // justify-content: center;
     img {
         max-width: 250px;
     }
+}
+
+.a-link{
+    text-decoration: none;
+    color: $font-color;
 }

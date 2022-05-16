@@ -8,7 +8,14 @@
         <div class="left-col">
             <img src="../../../assets/images/undraw_multitasking_hqg3.svg" alt="">
         </div>
-
     </div>
+</div>
 
+<div class="flex-center m-y-20px">
+    <a class="m-x-10px a-link" routerLink="/" [ngStyle]="{'color': !isActive('/') ? '#3e3e3e' : '' }">
+        HOME
+    </a>
+    <a class="m-x-10px a-link" routerLink="collections" [ngStyle]="{'color': !isActive('/collections') ? '#3e3e3e' : '' }">
+        COLLECTIONS
+    </a>
 </div>

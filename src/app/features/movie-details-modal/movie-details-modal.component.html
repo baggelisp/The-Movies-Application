@@ -51,7 +51,7 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close class="dialog-button">CLOSE</button>
-    <button mat-button class="dialog-button fav-button">
+    <button mat-button class="dialog-button fav-button" (click)="addToFavorites(movie.id)">
       <!-- <mat-icon class="" aria-hidden="false">favorite</mat-icon> -->
       <!-- <mat-icon class="" aria-hidden="false">favorite_border</mat-icon> -->
 

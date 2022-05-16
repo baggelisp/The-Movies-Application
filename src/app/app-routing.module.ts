@@ -10,6 +10,10 @@ const routes: Routes = [
       {
         path: '',
       loadChildren: () => import('./features/search-page/search-page.module').then(m => m.SearchPageModule)
+      },
+      {
+        path: 'collections',
+      loadChildren: () => import('./features/movies-collections-page/movies-collections-page.module').then(m => m.MoviesCollectionsPageModule)
       }
     ]
   }

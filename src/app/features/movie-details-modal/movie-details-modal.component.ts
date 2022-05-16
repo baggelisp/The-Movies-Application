@@ -11,10 +11,6 @@ export class MovieDetailsModalComponent implements OnInit {
   constructor( public service: MovieDetailsModalService) { }
 
   ngOnInit(): void {
-
-    this.service.movie$.subscribe(a => {
-      console.log(a)
-    })
   }
 
 
@@ -22,4 +18,7 @@ export class MovieDetailsModalComponent implements OnInit {
 		window.open(url, '_blank');
 	}
 
+  addToFavorites(movieId: number){
+    console.log(movieId)
+  }
 }
