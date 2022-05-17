@@ -5,3 +5,11 @@
     font-size: 12px;
     color: $error-color;
 }
+
+.coll-box{
+    background-color: $background;
+    padding: 20px 40px;
+    margin: 10px 0;
+    border-radius: 20px;
+    cursor: pointer;
+}

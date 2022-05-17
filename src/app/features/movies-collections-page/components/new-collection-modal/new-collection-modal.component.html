@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>New Collection</h1>
+<div mat-dialog-content>
+    <div>
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>New collection</mat-label>
+            <input #newColl="ngModel" minlength="4" matInput type="text" [(ngModel)]="newCollectionValue">
+            <button *ngIf="newCollectionValue" matSuffix mat-icon-button aria-label="Clear" (click)="newCollectionValue=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    <div class="alerts">
+        <ng-container *ngIf="newColl.errors?.['minlength']">
+            Collection name must be at least 4 characters long.
+        </ng-container>
+    </div>
+</div>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="dialog-button">CLOSE</button>
+    <button  mat-button class="dialog-button" (click)="onSumbit()"> ADD NEW COLLECTION </button>
+</mat-dialog-actions>

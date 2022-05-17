@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CollectionsModalComponent } from '../movies-collections-page/components/collections-modal/collections-modal.component';
 import { MovieDetailsModalService } from './movie-details-modal.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { MovieDetailsModalService } from './movie-details-modal.service';
 })
 export class MovieDetailsModalComponent implements OnInit {
 
-  constructor( public service: MovieDetailsModalService) { }
+  constructor( public service: MovieDetailsModalService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +22,15 @@ export class MovieDetailsModalComponent implements OnInit {
 
   addToFavorites(movieId: number){
     console.log(movieId)
+    const dialogRef = this.dialog.open(CollectionsModalComponent,
+      {
+        data: {
+          movieId: movieId
+        },
+        width: '600px',
+      });
+      // dialogRef.afterClosed().subscribe(result => {
+      //   this.collections = this.service.getCollections();
+      // });
   }
 }

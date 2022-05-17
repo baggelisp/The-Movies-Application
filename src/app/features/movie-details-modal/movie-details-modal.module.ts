@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { MoviesCollectionsPageModule } from '../movies-collections-page/movies-collections-page.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     MatDialogModule,
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    MoviesCollectionsPageModule
   ],
   providers: [
     MovieDetailsModalService,

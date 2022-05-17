@@ -1,9 +1,10 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MoviesCollectionsPageService } from '../../movies-collections-page.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CollectionInt, MoviesCollectionsPageService } from '../../movies-collections-page.service';
+import { NewCollectionModalComponent } from '../new-collection-modal/new-collection-modal.component';
 
 export interface DialogData {
-  isNewCollection: boolean;
+  movieId: string;
 }
 
 @Component({
@@ -13,22 +14,33 @@ export interface DialogData {
 })
 export class CollectionsModalComponent implements OnInit {
 
-  @Input() isNewCollection = false;
+  collections: CollectionInt[] = [];
+  movieId: string = '';
 
   newCollectionValue = '';
 
   constructor( public dialogRef: MatDialogRef<CollectionsModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, public dialog: MatDialog,
   public service: MoviesCollectionsPageService) { 
-    this.isNewCollection = data.isNewCollection;
+    this.movieId = this.data.movieId
   }
 
   ngOnInit(): void {
+    this.collections = this.service.getCollections();
   }
 
-  onSumbit(){
-    this.service.addNewCollection(this.newCollectionValue);
+  onSelectCollection(collectionId: string) {
+    this.service.saveMovieToCollection(collectionId, this.movieId);
     this.dialogRef.close();
   }
 
+  addNewCollection(){
+    const dialogRef = this.dialog.open(NewCollectionModalComponent,
+    {
+      width: '600px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.collections = this.service.getCollections();
+    });
+  }
 }
