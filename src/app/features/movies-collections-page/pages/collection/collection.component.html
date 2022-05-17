@@ -16,6 +16,12 @@
         <h3 class="coll-name">
             Movies:
         </h3>
+
+        <ng-container *ngFor="let movie of collectionService.movies$ | async; index as i;">
+            <app-movie-card (onClickMovieCard)="onClickCard(movie.id)" [movie]="movie"></app-movie-card>
+        </ng-container>
         
     </div>
 </div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "square-loader" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

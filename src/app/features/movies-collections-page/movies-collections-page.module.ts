@@ -15,6 +15,7 @@ import { NewCollectionModalComponent } from './components/new-collection-modal/n
 import { CollectionService } from './pages/collection/collection.service';
 import { CollectionApi } from './pages/collection/collection.api';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [
     MoviesCollectionsPageService,
