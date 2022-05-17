@@ -21,7 +21,7 @@ export function moviesCollectionsReducer(state = initialState, { type, payload }
         ...state,
         movies: [...payload],
       }
-    case 'CLEAN_STATE':
+    case 'COLLECTIONS_CLEAN_STATE':
       return {
         ...initialState
       }

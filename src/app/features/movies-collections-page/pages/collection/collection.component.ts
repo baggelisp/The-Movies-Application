@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { MovieDetailsModalService } from 'src/app/features/movie-details-modal/movie-details-modal.service';
 import { CollectionInt, MoviesCollectionsPageService } from '../../movies-collections-page.service';
 import { CollectionService } from './collection.service';
 

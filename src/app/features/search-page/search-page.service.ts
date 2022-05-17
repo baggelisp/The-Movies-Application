@@ -31,7 +31,7 @@ export class SearchPageService {
     }, error => {
       this.spinner.hide();
       alert("There was an error getting movies. Please try again later.");
-      this.store.dispatch({ type: `CLEAN_STATE`, payload: {}  }); 
+      this.store.dispatch({ type: `SEARCH_CLEAN_STATE`, payload: {}  }); 
     });
 	}
 
@@ -43,7 +43,7 @@ export class SearchPageService {
     }, error => {
       this.spinner.hide();
       alert("There was an error getting movies. Please try again later.");
-      this.store.dispatch({ type: `CLEAN_STATE`, payload: {}  }); 
+      this.store.dispatch({ type: `SEARCH_CLEAN_STATE`, payload: {}  }); 
 
     });
   }

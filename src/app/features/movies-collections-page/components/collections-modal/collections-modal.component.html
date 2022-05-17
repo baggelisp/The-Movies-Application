@@ -1,18 +1,13 @@
 <h1 mat-dialog-title>Select Collection</h1>
 <div mat-dialog-content>
-
     <div class="coll-box flex-between align-center" *ngFor="let item of collections; let i = index" (click)="onSelectCollection(item.id)">
         <div class="coll-name"> {{i + 1}}.  {{item.name}} </div>
     </div>
     <ng-container *ngIf="collections.length == 0">
         No collection found.
     </ng-container>
-    
-    
 </div>
-
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close class="dialog-button">CLOSE</button>
     <button mat-button class="dialog-button" (click)="addNewCollection()">ADD NEW COLLECTION</button>
-
 </mat-dialog-actions>

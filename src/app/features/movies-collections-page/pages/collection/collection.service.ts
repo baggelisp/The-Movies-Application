@@ -25,7 +25,7 @@ export class CollectionService {
     }, error => {
       this.spinner.hide();
       alert("There was an error getting movies. Please try again later.");
-      this.store.dispatch({ type: `CLEAN_STATE`, payload: {}  }); 
+      this.store.dispatch({ type: `COLLECTIONS_CLEAN_STATE`, payload: {}  }); 
     });
   }
 }

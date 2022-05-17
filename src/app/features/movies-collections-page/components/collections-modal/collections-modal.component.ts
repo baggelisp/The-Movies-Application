@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CollectionInt, MoviesCollectionsPageService } from '../../movies-collections-page.service';
 import { NewCollectionModalComponent } from '../new-collection-modal/new-collection-modal.component';

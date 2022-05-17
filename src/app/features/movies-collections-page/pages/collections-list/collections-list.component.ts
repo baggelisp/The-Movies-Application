@@ -18,8 +18,6 @@ export class CollectionsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.collections = this.service.getCollections();
-    console.log(this.collections)
-    
   }
 
   onAddNew(){

@@ -21,7 +21,7 @@ export function movieDetailsReducer(state = initialState, { type, payload }: Act
         ...state,
         movie: {...payload},
       }
-    case 'CLEAN_STATE':
+    case 'MOVIE_CLEAN_STATE':
       return {
         ...initialState
       }
