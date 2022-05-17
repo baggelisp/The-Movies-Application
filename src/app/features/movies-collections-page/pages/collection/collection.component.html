@@ -20,6 +20,11 @@
         <ng-container *ngFor="let movie of collectionService.movies$ | async; index as i;">
             <app-movie-card (onClickMovieCard)="onClickCard(movie.id)" [movie]="movie"></app-movie-card>
         </ng-container>
+
+        <ng-container *ngIf="(collectionService.movies$ | async)?.length == 0">
+            No movie in collection!
+        </ng-container>
+        
         
     </div>
 </div>

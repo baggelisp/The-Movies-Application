@@ -23,6 +23,7 @@ export class NewCollectionModalComponent implements OnInit {
   }
 
   onSumbit(){
+    if (!this.newCollectionValue || this.newCollectionValue.length < 4) return;
     this.service.addNewCollection(this.newCollectionValue);
     this.dialogRef.close();
   }

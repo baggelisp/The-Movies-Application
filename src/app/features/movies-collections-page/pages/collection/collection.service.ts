@@ -7,6 +7,7 @@ import { CollectionApi } from './collection.api';
 
 @Injectable()
 export class CollectionService {
+
   public readonly movies$: Observable<Movie[]>;
 
   constructor(private store: Store<any>, private api: CollectionApi,
@@ -27,5 +28,9 @@ export class CollectionService {
       alert("There was an error getting movies. Please try again later.");
       this.store.dispatch({ type: `COLLECTIONS_CLEAN_STATE`, payload: {}  }); 
     });
+  }
+
+  cleanStore() {
+    this.store.dispatch({ type: `COLLECTIONS_CLEAN_STATE`, payload: {}  }); 
   }
 }

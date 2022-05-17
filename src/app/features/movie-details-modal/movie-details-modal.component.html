@@ -3,17 +3,17 @@
   <mat-dialog-content class="mat-typography">
     <p>{{movie.tagline}}</p>
   
-    <div class="flex-between">
+    <div class="flex-between m-block">
       <div class="p-20px">
-        <img class="movie-image" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
+        <img class="movie-image m-w-100 " src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
       </div>
 
       <div class="p-20px">
         <h3 class="text-bold">Overview</h3>
         <p>{{movie.overview}}</p>
         <h3 class="text-bold"> Genres </h3>
-        <div class="genre-chips d-m-block">
-            <div class="genre m-text-center " *ngFor="let genre of movie.genres">
+        <div class="genre-chips d-m-block m-flex-wrap">
+            <div class="genre m-text-center m-mtop-20px" *ngFor="let genre of movie.genres">
                 {{genre.name}}
             </div>
         </div>
@@ -27,16 +27,16 @@
           <div class="align-center flex-start"> Rating: {{movie.vote_average}} / 10 <mat-icon class="star-icon m-x-10px" aria-hidden="false">star</mat-icon>  </div>
           <div class="align-center flex-start m-l-20px">Total votes: {{movie.vote_count}}</div>
         </div>
-        <div class="flex-start">
+        <div class="flex-start m-block">
           <div class="p-20px p-l-0">
             <h3 class="text-bold">Release Date</h3>
             <p>{{movie.release_date | date:'MMMM d, y'}}</p>
           </div>
-          <div class="p-20px">
+          <div class="p-20px m-p-x-0">
             <h3 class="text-bold">Budget</h3>
             <p>{{movie.budget | number:'1.2-2' }} USD</p>
           </div>
-          <div class="p-20px">
+          <div class="p-20px m-p-x-0">
             <h3 class="text-bold">Revenue</h3>
             <p>{{movie.revenue | number:'1.2-2' }} USD</p>
           </div>
@@ -51,7 +51,7 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close class="dialog-button">CLOSE</button>
-    <button mat-button class="dialog-button fav-button" (click)="addToFavorites(movie.id)">
+    <button mat-button class="dialog-button fav-button m-mtop-20px" (click)="addToFavorites(movie.id)">
       ADD TO COLLECTION</button>
   
   </mat-dialog-actions>

@@ -1,7 +1,7 @@
 <div class="movie-card-cont" (click)="onClickCard()">
-    <div class="flex-between align-center">
-        <div class="flex-start align-center">
-            <img class="movie-image" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
+    <div class="flex-between align-center m-block">
+        <div class="flex-start align-center m-block">
+            <img class="movie-image m-w-100 m-obj-contain" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
             <div class="movie-details">
                 <h3 class="movie-title">{{movie.title}}</h3>
                 <h6 class="release-date">
@@ -10,9 +10,9 @@
             </div>
 
         </div>
-        <div class="flex-end align-center">
+        <div class="flex-end align-center m-flex-center">
             <div class="votes">
-                <div class="align-center flex-end">
+                <div class="align-center flex-end m-block">
                     {{movie.vote_average}} / 10
                     <mat-icon class="star-icon m-x-10px" aria-hidden="false">star</mat-icon>
                 </div>

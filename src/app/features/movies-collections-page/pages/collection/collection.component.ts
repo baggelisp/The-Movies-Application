@@ -24,10 +24,12 @@ export class CollectionComponent implements OnInit {
     if (!this.collectionId) this.goToAllCollections();
     this.collection = this.service.getCollection(this.collectionId);
     if (!this.collection.id) this.goToAllCollections();
+    if (!this.collection.movies.length) return;
     this.collectionService.getMoviesData(this.collection.movies);
   }
 
   goToAllCollections(){
+    this.collectionService.cleanStore();
     this.router.navigate(['/collections']);
   }
 
