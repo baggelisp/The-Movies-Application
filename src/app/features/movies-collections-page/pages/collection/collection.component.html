@@ -1,0 +1,21 @@
+<div class="collections-container">
+    <div class="m-top-10px flex-between">
+        <button class="default-button" (click)="goToAllCollections()">
+            <mat-icon class="m-r-5px" aria-hidden="false" aria-label="Add icon">keyboard_arrow_left</mat-icon>
+            BACK
+        </button>
+        <button class="danger-button" (click)="deleteCollection()">
+            DELETE
+        </button>
+    </div>
+
+    <div class="m-top-20px">
+        <h3 class="coll-name">
+            Collection: {{collection?.name}}
+        </h3>
+        <h3 class="coll-name">
+            Movies:
+        </h3>
+        
+    </div>
+</div>

@@ -1,5 +1,18 @@
 @import './colors.scss';
 
+.default-button {
+    cursor: pointer;
+    color: $font-color;
+    background-color: white;
+    border-color: $font-color;
+    border: 1px solid;
+    padding: 10px 30px!important;
+    border-radius: 20px!important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .danger-button {
     cursor: pointer;
     color: white;

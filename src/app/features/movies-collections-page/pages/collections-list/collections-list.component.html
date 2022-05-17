@@ -1,0 +1,22 @@
+<div class="collections-container">
+    <div class="m-top-10px flex-end">
+        <button class="default-button" (click)="onAddNew()">
+            <mat-icon class="m-r-5px" aria-hidden="false" aria-label="Add icon">add</mat-icon>
+            ADD NEW COLLECTION
+        </button>
+    </div>
+
+    <div class="m-top-20px">
+        <div class="coll-box flex-between align-center" *ngFor="let item of collections; let i = index" (click)="openCollection(item.id)">
+            <div class="coll-name"> {{i + 1}}.  {{item.name}} </div>
+            <div>
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </div>
+        </div>
+
+        <ng-container *ngIf="collections.length == 0">
+            No collection
+        </ng-container>
+        
+    </div>
+</div>
