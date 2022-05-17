@@ -16,6 +16,8 @@ import { CollectionService } from './pages/collection/collection.service';
 import { CollectionApi } from './pages/collection/collection.api';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MovieDetailsModalService } from '../movie-details-modal/movie-details-modal.service';
+import { MovieDetailsModalApi } from '../movie-details-modal/movie-details-modal.api';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MoviesCollectionsPageService,
     MoviesCollectionsPageApi,
     CollectionService,
-    CollectionApi
+    CollectionApi,
+    MovieDetailsModalService,
+    MovieDetailsModalApi 
   ]
 })
 export class MoviesCollectionsPageModule { }

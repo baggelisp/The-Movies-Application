@@ -21,7 +21,6 @@ export class MovieDetailsModalComponent implements OnInit {
 	}
 
   addToFavorites(movieId: number){
-    console.log(movieId)
     const dialogRef = this.dialog.open(CollectionsModalComponent,
       {
         data: {

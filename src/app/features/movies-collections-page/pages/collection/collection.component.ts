@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MovieDetailsModalService } from 'src/app/features/movie-details-modal/movie-details-modal.service';
 import { CollectionInt, MoviesCollectionsPageService } from '../../movies-collections-page.service';
 import { CollectionService } from './collection.service';
 
@@ -15,17 +16,15 @@ export class CollectionComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, 
     public service: MoviesCollectionsPageService,
-    public collectionService: CollectionService) { }
+    public collectionService: CollectionService,
+    public movieDetailModal: MovieDetailsModalService) { }
 
   ngOnInit(): void {
     this.collectionId = this.route.snapshot.params['id'];
     if (!this.collectionId) this.goToAllCollections();
     this.collection = this.service.getCollection(this.collectionId);
     if (!this.collection.id) this.goToAllCollections();
-
     this.collectionService.getMoviesData(this.collection.movies);
-
-    this.collectionService.movies$.subscribe(a => console.log(a))
   }
 
   goToAllCollections(){
@@ -38,10 +37,7 @@ export class CollectionComponent implements OnInit {
   }
 
   onClickCard(movieId: number){
-    const queryParams: Params = { openMovie: movieId };
-    this.router.navigate(
-      ['/'], 
-      {queryParams: queryParams});
+    this.movieDetailModal.openDialog(movieId)
   }
 
 }
