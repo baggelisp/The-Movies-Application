@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CollectionsModalComponent } from '../../components/collections-modal/collections-modal.component';
+import { Router } from '@angular/router';
+import { NewCollectionModalComponent } from '../../components/new-collection-modal/new-collection-modal.component';
 import { CollectionInt, MoviesCollectionsPageService } from '../../movies-collections-page.service';
 
 @Component({
@@ -23,11 +23,8 @@ export class CollectionsListComponent implements OnInit {
   }
 
   onAddNew(){
-    const dialogRef = this.dialog.open(CollectionsModalComponent,
+    const dialogRef = this.dialog.open(NewCollectionModalComponent,
     {
-      data: {
-        isNewCollection: true,
-      },
       width: '600px',
     });
     dialogRef.afterClosed().subscribe(result => {

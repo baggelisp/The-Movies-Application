@@ -1,9 +1,11 @@
+import { Movie } from "src/app/models/interfaces";
 
 interface initialStateInt {
-  // movie: MovieDetails | any,
+  movies: Movie[],
 }
 
 const initialState: initialStateInt ={
+  movies: [],
 };
 
 interface ActionWithPayload {
@@ -14,10 +16,10 @@ interface ActionWithPayload {
 export function moviesCollectionsReducer(state = initialState, { type, payload }: ActionWithPayload) {
 
   switch (type) {
-    case 'GET_MOVIE_SUCCESS':
+    case 'GET_COLL_MOVIES_SUCCESS':
       return {
         ...state,
-        movie: {...payload},
+        movies: [...payload],
       }
     case 'CLEAN_STATE':
       return {

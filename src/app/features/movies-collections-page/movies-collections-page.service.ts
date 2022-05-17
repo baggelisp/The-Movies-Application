@@ -4,6 +4,7 @@ import { MoviesCollectionsPageApi } from './movies-collections-page.api';
 export interface CollectionInt {
   id: string,
   name: string,
+  movies: string[]
 }
 
 @Injectable()
@@ -26,5 +27,9 @@ export class MoviesCollectionsPageService {
 
   getCollection(collectionId: string): CollectionInt{
     return this.api.getCollection(collectionId);
+  }
+
+  saveMovieToCollection(collectionId: string, movieId: string) {
+    return this.api.saveMovieToCollection(collectionId, movieId);
   }
 }

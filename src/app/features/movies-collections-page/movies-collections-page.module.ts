@@ -11,13 +11,18 @@ import { CollectionsListComponent } from './pages/collections-list/collections-l
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { NewCollectionModalComponent } from './components/new-collection-modal/new-collection-modal.component';
+import { CollectionService } from './pages/collection/collection.service';
+import { CollectionApi } from './pages/collection/collection.api';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     CollectionsModalComponent,
     CollectionsListComponent,
-    CollectionComponent
+    CollectionComponent,
+    NewCollectionModalComponent
   ],
   imports: [
     CommonModule,
@@ -26,11 +31,14 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatIconModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     MoviesCollectionsPageService,
-    MoviesCollectionsPageApi
+    MoviesCollectionsPageApi,
+    CollectionService,
+    CollectionApi
   ]
 })
 export class MoviesCollectionsPageModule { }
