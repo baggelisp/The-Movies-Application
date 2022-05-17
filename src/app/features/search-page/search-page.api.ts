@@ -15,7 +15,7 @@ export class SearchPageApi {
 	}
 
 	searchMovie(query: string, page=1): Observable<MoviesResponse> {
-		return this.http.get<any>(`${environment.apiUrl}/3/search/movie/?api_key=${environment.apiKey}&query=${query}&page=${page}`)
+		return this.http.get<any>(`${environment.apiUrl}/3/search/movie?api_key=${environment.apiKey}&query=${query}&page=${page}`)
 	}
 
   
