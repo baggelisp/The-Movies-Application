@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Live Demo
 
-Live demo of the application deployed on [Vercel](https://www.netlify.com/)
+Live demo of the application deployed on [Vercel](https://www.vercel.com/)
 
 Link: [https://the-movies-application.vercel.app/](https://the-movies-application.vercel.app/)
 
